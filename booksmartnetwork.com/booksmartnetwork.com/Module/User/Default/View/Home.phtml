@@ -1,0 +1,12 @@
+<h1>My Account</h1>
+<p>
+  Hi <?php echo $this->toHtml((string)$this->getSession('user')->getInfo('name/first')); ?>, welcome back to BookSmart Networks!
+</p>
+<h2>Navigation:</h2>
+<ul>
+  <li>
+    <a href="<?php echo $this->getLinkBuilder()->url('user/default/curriculumNeeds', '', 'SSL'); ?>">Curriculum Needs</a>
+    <a href="<?php echo $this->getLinkBuilder()->url('user/default/login', 'action=logout', 'SSL'); ?>">Log Out</a>
+  </li>
+</ul>
+

@@ -1,0 +1,6 @@
+<h1>Log Into Member's Area</h1>
+<form action="<?php echo $this->getLinkBuilder()->url('public/login/login', 'action=login', 'SSL'); ?>" method="post">
+  Email: <input type="text" name="email" value="" /><br />
+  Password: <input type="text" name="password" value="" /><br />
+  <input type="submit" name="submit" value=" Login " />
+</form>

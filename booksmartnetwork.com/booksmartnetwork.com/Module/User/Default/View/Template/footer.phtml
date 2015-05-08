@@ -1,0 +1,13 @@
+<br />
+<p><strong>User Data:</strong></p>
+<pre><?php echo $this->toHtml(print_r($this->getSession('user')->userData(), true)); ?></pre>
+<br />
+<p><strong>Module Data:</strong></p>
+<pre><?php echo $this->toHtml(print_r($this, true)); ?></pre>
+<br />
+<!--
+<p><strong>Session Data:</strong></p>
+<pre><?php echo $this->toHtml(print_r($_SESSION, true)); ?></pre>
+-->
+</body>
+</html>

@@ -1,0 +1,64 @@
+<?php
+  
+  $action = $this->getVar('action');
+  
+  $form = $this->getVar('form');
+  
+?>
+<h1>Curriculum Needs</h1>
+<?php
+  
+  switch ($action)
+  {
+      case 'temp':
+          
+?>
+<?php
+          
+      break;
+      case 'new_scenario':
+          
+?>
+<h2>Add New Search Scenario</h2>
+<?php
+          
+          echo $form['form'];
+      break;
+      case 'new_subject':
+          
+?>
+<h2>Add New Subject</h2>
+<?php
+          
+          echo $form['form'];
+      break;
+      case 'search':
+          
+?>
+<h2>Search Curriculum</h2>
+<?php
+          
+          echo $form['form'];
+      break;
+      default:
+      
+?>
+<p>
+  <a href="<?php echo $this->getLinkBuilder()->url('user/default/curriculumNeeds', 'action=new_scenario', 'SSL'); ?>">Add New Search Scenario</a>
+  &nbsp;|&nbsp;
+  <a href="<?php echo $this->getLinkBuilder()->url('user/default/curriculumNeeds', 'action=search', 'SSL'); ?>">Search Curriculum</a>
+</p>
+<?php
+      
+  }
+  
+?>
+<h2>Navigation:</h2>
+<ul>
+  <li>
+    <a href="<?php echo $this->getLinkBuilder()->url('user/default/curriculumNeeds', '', 'SSL'); ?>">Curriculum Needs</a>
+    &nbsp;|&nbsp;
+    <a href="<?php echo $this->getLinkBuilder()->url('user/default/home', '', 'SSL'); ?>">User Home</a>
+  </li>
+</ul>
+

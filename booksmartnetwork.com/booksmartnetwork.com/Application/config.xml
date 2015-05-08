@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+<!--
+    <test>
+        <type_str type="string">hello 1</type_str>
+        <type_str type="string">hello 2</type_str>
+        <type_null type="null">123</type_null>
+        <type_int type="int">3.6</type_int>
+        <type_float type="float">-1.013</type_float>
+        <type_bool type="bool">True</type_bool>
+        <type_array type="array" split="&amp;"><![CDATA[1&2&3]]></type_array>
+        <type_time type="time">1 Hour</type_time>
+        <type_date type="date">Jan 13th, 2009</type_date>
+        <type_const type="constant">PHP_VERSION</type_const>
+        <type_path type="path">%BASE_PATH%/Var/cache/</type_path>
+        <type_callback type="callback">PDO::quote()</type_callback>
+        <type_empty1></type_empty1>
+        <type_empty2 />
+    </test>
+-->
+
+
+    <server>http://localhost</server>
+    <ssl_server>https://localhost</ssl_server>
+    <ssl_enable type="bool">disabled</ssl_enable>
+    <server_ip>127.0.0.1</server_ip>
+
+    <php_engine type="path">C:/xampp/php</php_engine>
+    <php_include_path type="path">%BASE_PATH%/Lib/PEAR%PS%%BASE_PATH%</php_include_path>
+    <php_include_path_append type="bool">True</php_include_path_append>
+
+    <local_timezone>America/New_York</local_timezone>
+    <datetime_sql>Y-m-d\TH:i:s+O</datetime_sql>
+
+    <Application>
+
+        <DataAccess>
+            <cache_enabled type="bool">disabled</cache_enabled>
+            <fetch_mode type="constant">PDO::FETCH_ASSOC</fetch_mode>
+            <dsn>
+                <dbname>smartnet200</dbname>
+                <port>3306</port>
+                <host>localhost</host>
+            </dsn>
+            <driver>mysql</driver>
+            <user>root</user>
+            <pass />
+            <options><MYSQL_ATTR_INIT_COMMAND>SET NAMES 'UTF8'</MYSQL_ATTR_INIT_COMMAND></options>
+            <attributes><ATTR_ERRMODE>ERRMODE_EXCEPTION</ATTR_ERRMODE></attributes>
+        </DataAccess>
+
+        <SessionHandler>
+            <expire type="time">1 Hour</expire>
+            <session_name>bssid</session_name>
+            <gc_maxlifetime type="time">1 Hour</gc_maxlifetime>
+            <gc_probability type="int">10</gc_probability>
+            <save_path>/</save_path>
+            <cookie_parameters>
+                <lifetime type="time">1 Hour</lifetime>
+                <path>/</path>
+                <domain></domain>
+                <secure type="bool">False</secure>
+            </cookie_parameters>
+            <sql_tables>
+                <sessions>
+                    <name>sessions</name>
+                </sessions>
+            </sql_tables>
+        </SessionHandler>
+
+        <User>
+            <default_role>PUBLIC</default_role>
+            <sql_tables>
+                <userstable>
+                    <name>bsn_users</name>
+                    <cache type="time">1 Hour</cache>
+                </userstable>
+                <rolestable>
+                    <name>bsn_authorization_roles</name>
+                    <cache type="time">1 Month</cache>
+                </rolestable>
+            </sql_tables>
+        </User>
+
+        <StaticData>
+            <sql_tables>
+                <attributestable>
+                    <name>bsn_data_attributes</name>
+                    <cache type="time">1 Year</cache>
+                </attributestable>
+                <correlationstable>
+                    <name>bsn_data_correlations</name>
+                    <cache type="time">1 Year</cache>
+                </correlationstable>
+                <entitiestable>
+                    <name>bsn_data_entities</name>
+                    <cache type="time">1 Year</cache>
+                </entitiestable>
+                <valuestable>
+                    <name>bsn_data_values</name>
+                    <cache type="time">1 Year</cache>
+                </valuestable>
+            </sql_tables>
+        </StaticData>
+
+    </Application>
+
+    <Lib>
+
+        <DataCacheDBM>
+            <cache_dir type="path">%BASE_PATH%/Var/cache/</cache_dir>
+        </DataCacheDBM>
+
+        <VarFile>
+            <basepath type="path">%BASE_PATH%/Var/</basepath>
+        </VarFile>
+
+        <Curriculum>
+            <sql_tables>
+                <currscenariotable>
+                    <name>bsn_curriculum_scenario</name>
+                    <cache type="time">1 Hour</cache>
+                </currscenariotable>
+                <scenariosubjectstable>
+                    <name>bsn_scenario_subjects</name>
+                    <cache type="time">1 Hour</cache>
+                </scenariosubjectstable>
+            </sql_tables>
+            <SearchReference>
+                <sql_tables>
+                    <attrvaluetable>
+                        <name>bsn_reference_attribute_value_scores</name>
+                    </attrvaluetable>
+                    <currsubjecttable>
+                        <name>bsn_reference_curriculum_subject_scores</name>
+                    </currsubjecttable>
+                </sql_tables>
+            </SearchReference>
+        </Curriculum>
+
+    </Lib>
+
+</config>

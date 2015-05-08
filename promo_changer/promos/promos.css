@@ -1,0 +1,46 @@
+/*
+    
+    Created by Keith Marshall (mgraphic) - 9/24/2011
+    keith@kmarshall.com
+    
+*/
+
+.promo-changer .container {
+    width: 505px;
+    height: 177px;
+    overflow: hidden;
+    position: relative;
+}
+.promo-changer img {
+    border: none;
+}
+.promo-changer .img-container {
+    position: absolute;
+}
+.promo-changer div.tabs {
+}
+.promo-changer span.tab {
+    display: inline-block;
+    padding: 8px 10px;
+    font-weight: bold;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 8pt;
+    background: #ccc;
+    color: #777;
+    margin-right: 3px;
+    cursor: pointer;
+    cursor: hand;
+    border-left: 1px solid #777;
+    border-top: 1px solid #777;
+    border-right: 1px solid #777;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+}
+.promo-changer span.active {
+    background: #777;
+    color: #ccc;
+}

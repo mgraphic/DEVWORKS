@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <Module>
+        <User>
+            <Default>
+                <templates>
+                    <pre>
+                        <template_file type="path">%BASE_PATH%/Module/User/Default/View/Template/html_header.phtml</template_file>
+                        <template_file type="path">%BASE_PATH%/Module/User/Default/View/Template/header.phtml</template_file>
+                    </pre>
+                    <post>
+                        <template_file type="path">%BASE_PATH%/Module/User/Default/View/Template/footer.phtml</template_file>
+                    </post>
+                </templates>
+                <title>%s | My BookSmart Network</title>
+
+                <!--<sql_tables>
+                    <userstable>
+                        <name>bsn_users</name>
+                        <cache type="time">1 Hour</cache>
+                    </userstable>
+                </sql_tables>-->
+
+            </Default>
+        </User>
+    </Module>
+</config>

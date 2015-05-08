@@ -1,0 +1,4 @@
+<h1>An Error has occured<?php if ($this->_error['code'] > 0) echo ' (' . $this->toHtml(STATUSCODES::getMessageForCode($this->_error['code'])) . ')'; ?>:</h1>
+<p><a href="<?php echo $this->getLinkBuilder()->url('public/default/home'); ?>">Public Home</a></p>
+<pre><?php echo $this->toHtml(print_r($this->getError(),1)); ?></pre>
+<pre><?php echo $this->toHtml(print_r($this,1)); ?></pre>

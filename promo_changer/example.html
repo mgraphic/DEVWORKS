@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title>Promo Changer</title>
+  
+  <!--//  Include the 3 lines below in the HTML HEAD section  //-->
+  <script type="text/javascript" src="promos/jquery.js"></script>
+  <script type="text/javascript" src="promos/promos.js"></script>
+  <link type="text/css" rel="stylesheet" href="promos/promos.css" />
+  <!--//  End Include  //-->
+  
+</head>
+<body style="font-family:arial,hevetica,sans-serif;">
+  <h1>Promo Changer</h1>
+  
+  <!--//  Include the line below in the HTML BODY section  //-->
+  <div class="promo-changer"></div>
+  <!--//  End Include  //-->
+  
+  <p>
+    You can include the promo changer as many times as you want
+    on the same page. Just add the following three lines in the
+    <code style="color:maroon;font-weight:bold;font-size:larger;">HTML HEAD</code> section.
+  </p>
+  <code style="color:navy;">
+    &lt;script type=&quot;text/javascript&quot; src=&quot;promos/jquery.js&quot;&gt;&lt;/script&gt;<br />
+    &lt;script type=&quot;text/javascript&quot; src=&quot;promos/promos.js&quot;&gt;&lt;/script&gt;<br />
+    &lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;promos/promos.css&quot; /&gt;
+  </code>
+  <p>
+    And add the following line in the
+    <code style="color:maroon;font-weight:bold;font-size:larger;">HTML BODY</code> section.
+  </p>
+  <code style="color:navy;">
+    &lt;div class=&quot;promo-changer&quot;&gt;&lt;/div&gt;
+  </code>
+  <hr />
+
+<!--// Begin API Info and Examples //-->
+<style type="text/css">
+.example .container {
+    width: 505px;
+    height: 177px;
+    overflow: hidden;
+    position: relative;
+}
+.example img {
+    border: none;
+}
+.example .img-container {
+    position: absolute;
+}
+.example div.tabs {
+}
+.example span.tab {
+    display: inline-block;
+    padding: 8px 10px;
+    font-weight: bold;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 8pt;
+    background: #ccc;
+    color: #777;
+    margin-right: 3px;
+    cursor: pointer;
+    cursor: hand;
+    border-left: 1px solid #777;
+    border-top: 1px solid #777;
+    border-right: 1px solid #777;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+}
+.example span.active {
+    background: #777;
+    color: #ccc;
+}
+td, th {
+    font-family: arial, helvetica, san-serif;
+    font-size: 10pt;
+    padding: 5px 8px;
+    text-align: left;
+}
+th {
+    background: navy;
+    color: #fff;
+}
+td {
+    background: #ccc;
+}
+.config .key, .config .default {
+    font-family: courier new, courier, monospace;
+}
+.config .key {
+    color: #040;
+    font-weight: bold;
+}
+.config .type {
+    font-weight: bold;
+    color: #555;
+}
+.config .ex {
+    font-family: arial, helvetica, san-serif;
+    font-weight: bold;
+}
+.config .ex span {
+    font-family: courier new, courier, monospace;
+    font-weight: normal;
+    color: maroon;
+}
+.config .desc span {
+    font-family: courier new, courier, monospace;
+    font-weight: normal;
+    color: #040;
+}
+</style>
+  <h2>Configuration Settings</h2>
+  <p>
+    The following table shows all the configuration settings that can be
+    used to override the default settings
+  </p>
+  <table class="config" border="0" cellspacing="1">
+    <thead>
+      <th>Configuration Key</th>
+      <th>Data Type</th>
+      <th>Default Value</th>
+      <th>Options</th>
+      <th>Description</th>
+    </thead>
+    <tr>
+      <td class="key">php</td>
+      <td class="type">string</td>
+      <td class="default">promos/</td>
+      <td class="ex">&nbsp;</td>
+      <td class="desc">Relative path to the php file to read the XML file.</td>
+    </tr>
+    <tr>
+      <td class="key">effect</td>
+      <td class="type">string</td>
+      <td class="default">fade</td>
+      <td class="ex"><span>fade</span> OR <span>slide</span> OR <span>plain</span></td>
+      <td class="desc">The transition effect used to switch promo images.<br />Plain is a hard change and <span>transitionTime</span> has no effect</td>
+    </tr>
+    <tr>
+      <td class="key">stillTime</td>
+      <td class="type">integer</td>
+      <td class="default">8000</td>
+      <td class="ex">&nbsp;</td>
+      <td class="desc">The time in milliseconds (1000 is one sec) that the image will display<br />between transitions</td>
+    </tr>
+    <tr>
+      <td class="key">transitionTime</td>
+      <td class="type">integer</td>
+      <td class="default">slow</td>
+      <td class="ex"><span>slow</span> OR <span>fast</span> OR <span>300</span></td>
+      <td class="desc">The time in milliseconds (1000 is one sec) that the image will take<br />to do the transitions.</td>
+    </tr>
+    <tr>
+      <td class="key">enableTabs</td>
+      <td class="type">boolean</td>
+      <td class="default">true</td>
+      <td class="ex"><span>true</span> OR <span>false</span></td>
+      <td class="desc">Enable or disable the click tabs.</td>
+    </tr>
+    <tr>
+      <td class="key">useTransitionOnTabClick</td>
+      <td class="type">boolean</td>
+      <td class="default">true</td>
+      <td class="ex"><span>true</span> OR <span>false</span></td>
+      <td class="desc">When a tab is clicked, use the transition effect or not.</td>
+    </tr>
+    <tr>
+      <td class="key">containerClassname</td>
+      <td class="type">string</td>
+      <td class="default">container</td>
+      <td class="ex">&nbsp;</td>
+      <td class="desc">Class name used for the entire container (tabs and images).</td>
+    </tr>
+    <tr>
+      <td class="key">imgContainerClassname</td>
+      <td class="type">string</td>
+      <td class="default">img-container</td>
+      <td class="ex">&nbsp;</td>
+      <td class="desc">Class name used for the image container.</td>
+    </tr>
+    <tr>
+      <td class="key">tabsClassname</td>
+      <td class="type">string</td>
+      <td class="default">tabs</td>
+      <td class="ex">&nbsp;</td>
+      <td class="desc">Class name used for the tabs container.</td>
+    </tr>
+    <tr>
+      <td class="key">tabClassname</td>
+      <td class="type">string</td>
+      <td class="default">tab</td>
+      <td class="ex">&nbsp;</td>
+      <td class="desc">Class name used for each clickable tab.</td>
+    </tr>
+    <tr>
+      <td class="key">tabActiveClassname</td>
+      <td class="type">string</td>
+      <td class="default">active</td>
+      <td class="ex">&nbsp;</td>
+      <td class="desc">Class name used for the current active tab.</td>
+    </tr>
+  </table>
+  
+  <hr />
+  <h2>Other Examples of Configuration</h2>
+  <p>
+    Use the following configurations below to change the behavior
+    of the effect. Edit line <code style="color:maroon;font-weight:bold;font-size:larger;">13</code> in the file
+    <code style="color:maroon;font-weight:bold;font-size:larger;">promos.js</code>
+  </p>
+  <hr />
+
+<h3>Slide Effect</h3>
+<pre style="color:#333;font-weight:bold;background:#ccc;padding:8px;width:489px;">
+jQuery(function(){
+    
+    $('.promo-changer').promos({
+        
+        effect : 'slide'
+    });
+});
+</pre>
+<script type="text/javascript">
+jQuery(function(){
+    
+    $('.ex1').promos({
+        
+        effect : 'slide'
+    });
+});
+</script>
+<div class="example ex1"></div>
+<br /><hr />
+
+<h3>Slow Fade</h3>
+<pre style="color:#333;font-weight:bold;background:#ccc;padding:8px;width:489px;">
+jQuery(function(){
+    
+    $('.promo-changer').promos({
+        
+        transitionTime : 5000,
+        useTransitionOnTabClick : false
+    });
+});
+</pre>
+<script type="text/javascript">
+jQuery(function(){
+    
+    $('.ex2').promos({
+        
+        transitionTime : 5000,
+        useTransitionOnTabClick : false
+    });
+});
+</script>
+<div class="example ex2"></div>
+<br /><hr />
+
+<h3>Quick Fade</h3>
+<pre style="color:#333;font-weight:bold;background:#ccc;padding:8px;width:489px;">
+jQuery(function(){
+    
+    $('.promo-changer').promos({
+        
+        stillTime : 3000,
+        transitionTime : 'fast',
+        enableTabs : false
+    });
+});
+</pre>
+<script type="text/javascript">
+jQuery(function(){
+    
+    $('.ex3').promos({
+        
+        stillTime : 3000,
+        transitionTime : 'fast',
+        enableTabs : false
+    });
+});
+</script>
+<div class="example ex3"></div>
+<br /><hr />
+
+<h3>Slow Slide</h3>
+<pre style="color:#333;font-weight:bold;background:#ccc;padding:8px;width:489px;">
+jQuery(function(){
+    
+    $('.promo-changer').promos({
+        
+        effect : 'slide',
+        stillTime : 12000,
+        transitionTime : 4000,
+        useTransitionOnTabClick : false
+    });
+});
+</pre>
+<script type="text/javascript">
+jQuery(function(){
+    
+    $('.ex4').promos({
+        
+        effect : 'slide',
+        stillTime : 12000,
+        transitionTime : 4000,
+        useTransitionOnTabClick : false
+    });
+});
+</script>
+<div class="example ex4"></div>
+<br /><hr />
+
+<h3>Default Settings</h3>
+<pre style="color:#333;font-weight:bold;background:#ccc;padding:8px;width:489px;">
+jQuery(function(){
+    
+    $('.promo-changer').promos();
+});
+</pre>
+<div class="promo-changer"></div>
+<br /><hr />
+
+</body>
+</html>

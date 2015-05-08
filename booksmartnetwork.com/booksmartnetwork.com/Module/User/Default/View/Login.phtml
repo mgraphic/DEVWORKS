@@ -1,0 +1,15 @@
+<h1>Log Into My Account</h1>
+<fieldset>
+  <legend>Login</legend>
+  <form action="<?php echo $this->getLinkBuilder()->url('user/default/login', 'action=login', 'SSL'); ?>" method="post">
+    <div class="row">
+      <div class="title">Email:</div>
+      <div class="value"><input type="email" name="email" value="" /></div>
+    </div>
+    <div class="row">
+      <div class="title">Password:</div>
+      <div class="value"><input type="password" name="password" value="" /></div>
+    </div>
+    <input type="submit" name="submit" value=" Login " />
+  </form>
+</fieldset>

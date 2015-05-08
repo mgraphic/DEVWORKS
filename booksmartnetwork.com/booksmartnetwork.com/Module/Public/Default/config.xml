@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <Module>
+        <Public>
+            <Default>
+                <templates>
+                    <pre>
+                        <template_file type="path">%BASE_PATH%/Module/Public/Default/View/Template/html_header.phtml</template_file>
+                        <template_file type="path">%BASE_PATH%/Module/Public/Default/View/Template/header.phtml</template_file>
+                    </pre>
+                    <main>
+                        <template_module>Module_Templates_Main_PagableLayout_Template</template_module>
+                        <template_file type="path">%BASE_PATH%/Module/Templates/Main/PagableLayout/main.phtml</template_file>
+                        <config></config>
+                    </main>
+                    <post>
+                        <template_file type="path">%BASE_PATH%/Module/Public/Default/View/Template/footer.phtml</template_file>
+                    </post>
+                </templates>
+                <title>%s | BookSmart Network</title>
+            </Default>
+        </Public>
+    </Module>
+</config>
